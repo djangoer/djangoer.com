@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'mama_cas',
 
     # myapps
-    
+    'homepages',    
 )
 
 MIDDLEWARE_CLASSES = (
