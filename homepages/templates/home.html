@@ -117,6 +117,28 @@ ul.info li p {
 <body>
     <div id="shim"></div>
     <div id="content">
+   
+        <form method="POST" action="" style="background:#fff;padding:40px">{% csrf_token %}
+        <script type="text/javascript"
+           src="http://www.google.com/recaptcha/api/challenge?k={{public_key}}">
+        </script>
+        <noscript>
+           <iframe src="http://www.google.com/recaptcha/api/noscript?k={{public_key}}"
+               height="300" width="500" frameborder="0"></iframe><br>
+           <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+           </textarea>
+           <input type="hidden" name="recaptcha_response_field"
+               value="manual_challenge">
+        </noscript>
+            
+            <input type="submit" name="Button1" value="Submit">
+            {% if captcha %}
+            <h2>{{flag}}</h2>
+            <h4> you({{ip}}) typed captcha <strong>{{captcha}}</strong> for <small>{{challenge}}</small> </h4>
+            {% endif %}
+        </form>
+
+
         <div class="logo_box">
             <h1>Django<strong>er</strong><br>.com</h1>
         </div>
