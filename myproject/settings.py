@@ -89,13 +89,15 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT='/home/suhailvs/webapps/djangoer/myproject/myproject/static/'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'djangoer', 
-        'USER': 'suhail',
-        'PASSWORD': 'suhail',
-        'HOST': ''
-    }
-}
 
+cur_host= os.environ.get('HOSTNAME','')
+if cur_host=='webfaction.com':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+            'NAME': 'djangoer',
+            'USER': 'suhail',
+            'PASSWORD': 'suhail',
+            'HOST': '',   # Or an IP Address that your DB is hosted on
+        }
+    }
